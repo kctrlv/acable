@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def require_user
     redirect_to root_path if !current_user
   end
+
+  def require_visitor
+    redirect_to games_path if current_user
+  end
 end

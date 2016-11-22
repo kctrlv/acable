@@ -1,5 +1,5 @@
 <div class="online-users">
   <% @online_users.each do |user| %>
-    <li> <%= user.name %> </li>
+    <li id=user_<%= user.id %>><%= user.name %></li>
   <% end %>
 </div>
