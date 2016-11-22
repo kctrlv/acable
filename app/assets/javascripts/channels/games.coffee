@@ -5,7 +5,7 @@ App.games = App.cable.subscriptions.create "GamesChannel",
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
-
+    
   userConnect: (data) ->
     html = """
            <li id=user_#{data['uid']}>
