@@ -9,6 +9,11 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <span>Welcome, <%= current_user.name %>!</span>
+      <%= link_to "Logout", logout_path %>
+    <% end %>
+
     <% flash.each do |type, message| %>
       <div class="alert alert-<%= type %>">
         <%= message %>
