@@ -3,5 +3,6 @@ class GamesController < ApplicationController
 
   def index
     @user = current_user
+    @online_users = User.where(status: 'online')
   end
 end
