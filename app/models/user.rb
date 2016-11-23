@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :games, foreign_key: :host_id
-
+  belongs_to :game
 
   def connect
     update_attribute(:status, 'online')
@@ -16,6 +15,7 @@ class User < ApplicationRecord
   def create_game
     byebug
     # game.create
+
   end
 
   private
