@@ -11,4 +11,8 @@ class GamesChannel < ApplicationCable::Channel
   def unsubscribed
     current_user.disconnect
   end
+
+  def create_game
+    current_user.create_game
+  end
 end

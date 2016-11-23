@@ -5,7 +5,7 @@ App.games = App.cable.subscriptions.create "GamesChannel",
 
   disconnected: ->
     # Called when the subscription has been terminated by the server
-    
+
   userConnect: (data) ->
     html = """
            <li id=user_#{data['uid']}>
@@ -17,7 +17,7 @@ App.games = App.cable.subscriptions.create "GamesChannel",
   userDisconnect: (data) ->
     $("#user_#{data['uid']}").remove()
 
-  userConnection: (data) ->
+  userData: (data) ->
     switch data.action
       when 'connect'
         App.games.userConnect(data)
@@ -28,7 +28,16 @@ App.games = App.cable.subscriptions.create "GamesChannel",
   received: (data) ->
     switch data.model
       when 'user'
-        App.games.userConnection(data)
+        App.games.userData(data)
+
+  createGame: ->
+    @perform 'create_game'
+
+$(document).on "click", '#create-game-btn', ->
+  App.games.createGame()
+
+
+
 
 
     # Called when there's incoming data on the websocket for this channel

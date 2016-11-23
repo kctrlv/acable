@@ -3,3 +3,16 @@
     <li id=user_<%= user.id %>><%= user.name %></li>
   <% end %>
 </div>
+
+<div class="games">
+  <% @games.each do |game| %>
+    <div class="game">
+      
+      <%= link_to game_path(game), "Join Game" %>
+    </div>
+  <% end %>
+</div>
+
+<div class="buttons">
+  <%= button_tag "Create Game", id: 'create-game-btn' %>
+</div>
